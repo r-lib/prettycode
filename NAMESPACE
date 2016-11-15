@@ -3,6 +3,7 @@
 S3method(print,"function")
 export(default_style)
 export(highlight)
+export(print.function)
 importFrom(crayon,blue)
 importFrom(crayon,bold)
 importFrom(crayon,combine_styles)

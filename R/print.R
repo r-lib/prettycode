@@ -6,6 +6,7 @@
 #'
 #' @docType package
 #' @name prettycode
+#' @export print.function
 NULL
 
 #' Print a function with syntax highlighting
