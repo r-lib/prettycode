@@ -11,6 +11,12 @@ LazyData: true
 URL: https://github.com/gaborcsardi/prettycode
 BugReports: https://github.com/gaborcsardi/prettycode/issues
 RoxygenNote: 5.0.1.9000
-Suggests: 
+Roxygen: list(markdown = TRUE)
+Imports:
+    crayon,
+    utils,
+    withr
+Suggests:
+    mockery,
     testthat
 Encoding: UTF-8
