@@ -42,7 +42,7 @@ test_that("print with color support", {
     list(crayon.enabled = TRUE),
     print.function(f)
   )
-  expect_true(crayon::has_style(args[[1]]))
+  expect_true(crayon::has_style(paste(args[[1]], collapse = "\n")))
 })
 
 test_that("print with color support 2", {
@@ -72,7 +72,7 @@ test_that("pager", {
     print.function(f)
   )
 
-  expect_true(crayon::has_style(cn))
+  expect_true(crayon::has_style(paste(cn, collapse = "\n")))
 })
 
 test_that("can_pretty_print", {
