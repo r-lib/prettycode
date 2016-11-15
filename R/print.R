@@ -35,6 +35,9 @@ print.function <- function(x, useSource = TRUE,
 
   hisrc <- highlight(src, style = style)
 
+  ## Environment of the function
+  hisrc <- c(hisrc, capture.output(print(environment(x))))
+
   if (!should_page(hisrc)) {
     cat(hisrc, sep = "\n")
 
