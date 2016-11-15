@@ -3,8 +3,9 @@ Title: Pretty Print R Code in the Terminal
 Version: 1.0.0
 Author: Gábor Csárdi
 Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
-Description: Replace the standard print method for functions with one that performs
-  syntax highlighting, using ANSI colors, if the terminal supports them.
+Description: Replace the standard print method for functions with one that
+    performs syntax highlighting, using ANSI colors, if the terminal
+    supports them.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/gaborcsardi/prettycode
@@ -12,3 +13,4 @@ BugReports: https://github.com/gaborcsardi/prettycode/issues
 RoxygenNote: 5.0.1.9000
 Suggests: 
     testthat
+Encoding: UTF-8
