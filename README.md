@@ -7,6 +7,7 @@
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/prettycode?svg=true)](https://ci.appveyor.com/project/gaborcsardi/prettycode)
 [![](http://www.r-pkg.org/badges/version/prettycode)](http://www.r-pkg.org/pkg/prettycode)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/prettycode)](http://www.r-pkg.org/pkg/prettycode)
+[![Coverage Status](https://img.shields.io/codecov/c/github/gaborcsardi/prettycode/master.svg)](https://codecov.io/github/gaborcsardi/prettycode?branch=master)
 
 Replace the standard print method for functions with one that performs
 syntax highlighting, using ANSI colors, if the terminal supports them.
