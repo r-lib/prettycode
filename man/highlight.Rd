@@ -21,4 +21,3 @@ Syntax highlight R code
 highlight(deparse(ls))
 cat(highlight(deparse(ls)), sep = "\\n")
 }
-

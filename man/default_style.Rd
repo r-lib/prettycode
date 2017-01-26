@@ -31,4 +31,3 @@ operator.
 \examples{
 highlight(deparse(get), style = default_style())
 }
-

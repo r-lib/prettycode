@@ -22,4 +22,3 @@ The function, invisibly.
 \description{
 Print a function with syntax highlighting
 }
-
