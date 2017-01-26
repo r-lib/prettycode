@@ -17,6 +17,7 @@ Imports:
     utils,
     withr
 Suggests:
+    covr,
     mockery,
     testthat
 Encoding: UTF-8
