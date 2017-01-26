@@ -20,6 +20,7 @@ NULL
 #'
 #' @export
 #' @importFrom withr with_envvar
+#' @importFrom utils capture.output
 
 print.function <- function(x, useSource = TRUE,
                            style = default_style(), ...) {
