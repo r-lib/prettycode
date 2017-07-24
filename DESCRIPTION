@@ -8,8 +8,8 @@ Description: Replace the standard print method for functions with one that
     supports them.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://github.com/gaborcsardi/prettycode#readme
-BugReports: https://github.com/gaborcsardi/prettycode/issues
+URL: https://github.com/r-lib/prettycode#readme
+BugReports: https://github.com/r-lib/prettycode/issues
 RoxygenNote: 5.0.1.9000
 Roxygen: list(markdown = TRUE)
 Imports:
