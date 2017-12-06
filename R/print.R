@@ -18,7 +18,6 @@ NULL
 #'   generic.
 #' @return The function, invisibly.
 #'
-#' @export
 #' @importFrom withr with_envvar
 #' @importFrom utils capture.output
 
@@ -52,6 +51,22 @@ print.function <- function(x, useSource = TRUE,
   }
 
   invisible(x)
+}
+
+obj_name <- "tools:prettycodeprinter"
+
+.onLoad <- function(libname, pkgname) {
+  if (! obj_name %in% search()) {
+    env <- new.env(parent = emptyenv())
+    env$print.function <- print.function
+    do.call("attach", list(env, name = obj_name))
+  }
+}
+
+.onUnload <- function(package) {
+  if (obj_name %in% search()) {
+    do.call("detach", list(obj_name))
+  }
 }
 
 #' @importFrom crayon has_color
