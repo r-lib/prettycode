@@ -53,7 +53,7 @@ print.function <- function(x, useSource = TRUE,
   invisible(x)
 }
 
-obj_name <- "tools:prettycodeprinter"
+obj_name <- "tools:prettycode"
 
 .onLoad <- function(libname, pkgname) {
   if (! obj_name %in% search()) {
