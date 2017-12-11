@@ -55,7 +55,7 @@ print.function <- function(x, useSource = TRUE,
 
 obj_name <- "tools:prettycode"
 
-.onLoad <- function(libname, pkgname) {
+.onAttach <- function(libname, pkgname) {
   if (! obj_name %in% search()) {
     env <- new.env(parent = emptyenv())
     env$print.function <- print.function
