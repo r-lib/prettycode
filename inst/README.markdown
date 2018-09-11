@@ -20,8 +20,8 @@ source("https://install-github.me/r-lib/prettycode")
 
 ## Usage
 
-Just load the package and start printing functions to the screen.
-Long functions are automatically paged using the default pager.
+Just call `prettycode::prettycode()` and start printing functions to the
+screen. Long functions are automatically paged using the default pager.
 
 ![](/inst/screenshot.png)
 

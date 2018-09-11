@@ -2,6 +2,7 @@
 
 export(default_style)
 export(highlight)
+export(prettycode)
 importFrom(crayon,blue)
 importFrom(crayon,bold)
 importFrom(crayon,combine_styles)
