@@ -15,7 +15,7 @@ syntax highlighting, using ANSI colors, if the terminal supports them.
 ## Installation
 
 ```r
-source("https://install-github.me/r-lib/prettycode")
+install.packages("prettycode")
 ```
 
 ## Usage
