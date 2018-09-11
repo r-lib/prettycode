@@ -1,6 +1,6 @@
 Package: prettycode
 Title: Pretty Print R Code in the Terminal
-Version: 1.0.2
+Version: 1.0.2.9000
 Author: Gábor Csárdi
 Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Description: Replace the standard print method for functions with one that
