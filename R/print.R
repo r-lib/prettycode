@@ -63,7 +63,11 @@ print.function <- function(x, useSource = TRUE,
     deparse(x)
   }
 
-  hisrc <- highlight(src, style = style)
+  err <- FALSE
+  hisrc <- tryCatch(
+    highlight(src, style = style),
+    error = function(e) err <<- TRUE)
+  if (err) return(base::print.function(x, useSource))
 
   ## Environment of the function
   hisrc <- c(hisrc, capture.output(print(environment(x))))

@@ -113,3 +113,14 @@ test_that("should_page 5", {
   mockery::stub(should_page, "num_lines", 50)
   expect_true(should_page(1:100))
 })
+
+test_that("fallback", {
+  called <- FALSE
+  mockery::stub(print.function, "base::print.function",
+                function(...) called <<- TRUE)
+
+  f <- new("function")
+  body(f) <- substitute(.External(x), list(x = new("externalptr")))
+  capture_output(print.function(f))
+  expect_true(called)
+})
