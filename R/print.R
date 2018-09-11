@@ -53,7 +53,16 @@ register_s3_method <- function(pkg, generic, class, fun = NULL) {
 
 print.function <- function(x, useSource = TRUE,
                            style = default_style(), ...) {
+  tryCatch(
+    pretty_print(x, useSource = useSource, style = style, ...),
+    error = function(e) {
+      base::print.function(x, useSource)
+    }
+  )
+}
 
+pretty_print <- function(x, useSource = TRUE,
+                           style = default_style(), ...) {
   if (!can_pretty_print()) return(base::print.function(x, useSource))
 
   srcref <- getSrcref(x)
