@@ -10,10 +10,12 @@
 #' * `call`: function calls
 #' * `string`: character literals
 #' * `comment`: comments
+#' * `bracket`: brackets: \code{(){}[]} 
 #'
 #' Each entry in a list must be a function that takes a character
-#' scalar, and returns a character scalar. The default style adds
-#' ANSI formatting to the code.
+#' scalar, and returns a character scalar with the exception of `bracket`
+#' which should be a list of these type of functions defining a color sequence. 
+#' The default style adds ANSI formatting to the code.
 #'
 #' Note that you can also change the code if you like, e.g. to include
 #' a unicode arrow character instead of the two-character assignment
@@ -33,6 +35,7 @@ default_style <- function() {
     operator = green,
     call     = cyan,
     string   = yellow,
-    comment  = combine_styles(make_style("darkgrey"), italic)
+    comment  = combine_styles(make_style("darkgrey"), italic),
+    bracket  = c(yellow, blue, cyan)
   )
 }

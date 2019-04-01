@@ -17,11 +17,13 @@ entries:
 \item \code{call}: function calls
 \item \code{string}: character literals
 \item \code{comment}: comments
+\item \code{bracket}: brackets: \code{(){}[]}
 }
 }
 \details{
 Each entry in a list must be a function that takes a character
-scalar, and returns a character scalar. The default style adds
+scalar, and returns a character scalar with the exception of \code{bracket}
+which should be a list of functions defining a color sequence. The default style adds
 ANSI formatting to the code.
 
 Note that you can also change the code if you like, e.g. to include

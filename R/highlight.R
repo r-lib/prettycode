@@ -12,6 +12,7 @@ reserved_words <- function() {
     "REPEAT", "WHILE", "FOR", "IN", "NEXT", "BREAK")
 }
 
+
 #' Syntax highlight R code
 #'
 #' @param code Character vector, each element is one line of code.
@@ -71,6 +72,12 @@ highlight <- function(code, style = default_style()) {
   if (!is.null(style$comment)) {
     comment <- data$token == "COMMENT"
     hitext[comment] <- style$comment(data$text[comment])
+  }
+  
+  ## Brackets
+  if (!is.null(style$bracket)){
+    bracket <- data$token %in% bracket_tokens()
+    hitext[bracket] <- color_brackets(data$text[bracket], style$bracket)
   }
 
   do_subst(code, data, hitext)
