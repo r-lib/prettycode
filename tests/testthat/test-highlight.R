@@ -103,3 +103,10 @@ test_that("comment", {
     c("C", " ls() C")
   )
 })
+
+test_that("bracket", {
+  expect_equal(
+    highlight("foo <- function(x){x}", list(bracket = list(function(x) "B"))),
+    "foo <- functionBxBBxB"
+  )
+})
