@@ -8,6 +8,12 @@
 
 prettycode <- function() {
   register_s3_method("prettycode", "print", "function", print.function)
+  if (! obj_name %in% search()) {
+    env <- new.env(parent = emptyenv())
+    env$print.function <- print.function
+    env$`!` <- exclam
+    do.call("attach", list(env, name = obj_name))
+  }
 }
 
 register_s3_method <- function(pkg, generic, class, fun = NULL) {
@@ -89,12 +95,8 @@ print.function <- function(x, useSource = TRUE,
 
 obj_name <- "tools:prettycode"
 
-.onAttach <- function(libname, pkgname) {
-  if (! obj_name %in% search()) {
-    env <- new.env(parent = emptyenv())
-    env$print.function <- print.function
-    do.call("attach", list(env, name = obj_name))
-  }
+exclam <- function(x) {
+  if (is.function(x)) print.function(x) else base::`!`(x)
 }
 
 .onUnload <- function(package) {
