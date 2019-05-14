@@ -1,6 +1,9 @@
 
 # devel
 
+* Color matching brackets to help distinguish between scopes
+  (#8, @mdequeljoe).
+
 # 1.0.2
 
 * Add `prettycode::prettycode()`. Call this function to turn on
