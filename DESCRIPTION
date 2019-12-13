@@ -14,10 +14,10 @@ RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
 Imports:
     crayon,
-    utils,
-    withr
+    utils
 Suggests:
     covr,
     mockery,
-    testthat
+    testthat,
+    withr
 Encoding: UTF-8
