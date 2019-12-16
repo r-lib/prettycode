@@ -6,6 +6,9 @@
 * Color matching brackets to help distinguish between scopes
   (#8, @mdequeljoe).
 
+* The withr package is now a development dependency, it is not needed
+  for regular use.
+
 # 1.0.2
 
 * Add `prettycode::prettycode()`. Call this function to turn on
