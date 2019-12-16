@@ -1,4 +1,6 @@
 
+# pretttycode development version
+
 # prettycode 1.1.0
 
 * Use the colors of the current theme in RStudio.
