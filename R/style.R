@@ -28,6 +28,33 @@
 #' highlight(deparse(get), style = default_style())
 
 default_style <- function() {
+  rs <- rstudio$detect()
+  if (rs$type %in% c("rstudio_console", "rstudio_console_starting")) {
+    default_style_rstudio()
+  } else {
+    default_style_term()
+  }
+}
+
+default_style_rstudio <- function() {
+  theme <- rstudioapi::getThemeInfo()$editor
+  do.call(rstudio_themes[[theme]] %||% no_style, list())
+}
+
+no_style <- function() {
+  list(
+    reserved = identity,
+    number   = identity,
+    null     = identity,
+    operator = identity,
+    call     = identity,
+    string   = identity,
+    comment  = identity,
+    bracket  = list(identity)
+  )
+}
+
+default_style_term <- function() {
   list(
     reserved = red,
     number   = blue,

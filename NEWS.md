@@ -1,6 +1,8 @@
 
 # devel
 
+* Use the colors of the current theme in RStudio.
+
 * Color matching brackets to help distinguish between scopes
   (#8, @mdequeljoe).
 
