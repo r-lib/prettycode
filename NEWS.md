@@ -1,6 +1,8 @@
 
 # pretttycode development version
 
+* Printing primitive functions excludes their `NULL` environment (#11 @mdequeljoe)
+
 # prettycode 1.1.0
 
 * Use the colors of the current theme in RStudio.
