@@ -75,7 +75,9 @@ print.function <- function(x, useSource = TRUE,
   if (err) return(base::print.function(x, useSource))
 
   ## Environment of the function
-  hisrc <- c(hisrc, capture.output(print(environment(x))))
+  if (!is.primitive(x)) {
+    hisrc <- c(hisrc, capture.output(print(environment(x))))
+  }
 
   if (!should_page(hisrc)) {
     cat(hisrc, sep = "\n")
