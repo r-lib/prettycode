@@ -5,14 +5,16 @@
 #' syntax highlighting, using ANSI colors, if the terminal supports them.
 #'
 #' @export
+#' @param warn_conflicts logical. If \code{TRUE}, warnings are printed
+#'   about conflicts from attaching the database.
 
-prettycode <- function() {
+prettycode <- function(warn_conflicts) {
   register_s3_method("prettycode", "print", "function", print.function)
   if (! obj_name %in% search()) {
     env <- new.env(parent = emptyenv())
     env$print.function <- print.function
     env$`!` <- exclam
-    do.call("attach", list(env, name = obj_name))
+    do.call("attach", list(env, name = obj_name, warn.conflicts = warn_conflicts))
   }
 }
 
