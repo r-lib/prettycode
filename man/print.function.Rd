@@ -4,8 +4,7 @@
 \alias{print.function}
 \title{Print a function with syntax highlighting}
 \usage{
-\method{print}{function}(x, useSource = TRUE, style = default_style(),
-  ...)
+\method{print}{`function`}(x, useSource = TRUE, style = default_style(), ...)
 }
 \arguments{
 \item{x}{Function to print.}

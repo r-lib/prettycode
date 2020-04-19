@@ -19,5 +19,5 @@ Syntax highlight R code
 }
 \examples{
 highlight(deparse(ls))
-cat(highlight(deparse(ls)), sep = "\\n")
+cat(highlight(deparse(ls)), sep = "\n")
 }

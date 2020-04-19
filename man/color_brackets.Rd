@@ -10,7 +10,9 @@ color_brackets(x, color_seq = list(yellow, blue, cyan))
 \item{x}{a character vector of brackets consisting of a valid sequence of any
 of the following: \code{'[[', '[', ']', '(', ')', '{', '}'}}
 
-\item{color_seq}{a list of functions that take and return a character scalar}
+\item{color_seq}{a list of functions that take and return a character scalar. The
+ordering defines the sequence of color functions to apply to a given scope level.
+Color functions are recycled when the scope level exceeds the length of \code{color_seq}}
 }
 \description{
 Add color to brackets. Brackets will be coloured consecutively with the
@@ -21,17 +23,17 @@ Meant for coloring brackets encountered within \code{highlight}.
 Note that occurrences of 'orphan' brackets are not taken into account
 mainly due to the fact that cases such as
 
-\code{foo <- function(x){ `[`(x, 1) }}
+\code{foo <- function(x){ `[[`(x, 1) }}
 
 will either be converted to
 
-\code{foo <- function(x){ x[1]}}
+\code{foo <- function(x){ x[[1]] }}
 
 before the brackets are coloured if passed in as
 \code{highlight(deparse(foo))} or will be identified as a
 'SYMBOL_FUNCTION_CALL' token instead of 'LBB' if passed in as
 
-\code{highlight("foo <- function(x){ `[`(x, 1) }")}
+\code{highlight("foo <- function(x){ `[[`(x, 1) }")}
 
 Similarly, invalid code that would lead to orphaned brackets is not taken
 into account as this would be caught before hand in \code{highlight}.
