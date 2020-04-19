@@ -8,7 +8,7 @@
 #' @param warn_conflicts logical. If \code{TRUE}, warnings are printed
 #'   about conflicts from attaching the database.
 
-prettycode <- function(warn_conflicts) {
+prettycode <- function(warn_conflicts = TRUE) {
   register_s3_method("prettycode", "print", "function", print.function)
   if (! obj_name %in% search()) {
     env <- new.env(parent = emptyenv())

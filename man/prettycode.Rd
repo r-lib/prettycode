@@ -4,7 +4,7 @@
 \alias{prettycode}
 \title{Pretty Print R Code in the Terminal}
 \usage{
-prettycode(warn_conflicts)
+prettycode(warn_conflicts = TRUE)
 }
 \arguments{
 \item{warn_conflicts}{logical. If \code{TRUE}, warnings are printed
