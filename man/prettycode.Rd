@@ -4,7 +4,11 @@
 \alias{prettycode}
 \title{Pretty Print R Code in the Terminal}
 \usage{
-prettycode()
+prettycode(warn_conflicts)
+}
+\arguments{
+\item{warn_conflicts}{logical. If \code{TRUE}, warnings are printed
+about conflicts from attaching the database.}
 }
 \description{
 Replace the standard print method for functions with one that performs

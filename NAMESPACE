@@ -17,4 +17,3 @@ importFrom(crayon,yellow)
 importFrom(utils,capture.output)
 importFrom(utils,getParseData)
 importFrom(utils,getSrcref)
-
