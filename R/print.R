@@ -6,7 +6,7 @@
 #'
 #' @export
 #' @param warn_conflicts logical. If \code{TRUE}, warnings are printed
-#'   about conflicts from attaching the database.
+#'   about conflicts from replacing the standard print method.
 
 prettycode <- function(warn_conflicts = TRUE) {
   register_s3_method("prettycode", "print", "function", print.function)

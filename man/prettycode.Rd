@@ -8,7 +8,7 @@ prettycode(warn_conflicts = TRUE)
 }
 \arguments{
 \item{warn_conflicts}{logical. If \code{TRUE}, warnings are printed
-about conflicts from attaching the database.}
+about conflicts from replacing the standard print method.}
 }
 \description{
 Replace the standard print method for functions with one that performs
