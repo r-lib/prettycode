@@ -25,6 +25,10 @@ screen. Long functions are automatically paged using the default pager.
 
 ![](/inst/screenshot.png)
 
+### Options
+
+  - `prettycode.should_page` controls paging. Use `FALSE` to disable paging for long functions.
+
 ## License
 
 MIT © Gábor Csárdi

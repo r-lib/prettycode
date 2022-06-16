@@ -126,5 +126,8 @@ num_lines <- function() {
 }
 
 should_page <- function(src) {
-  is_interactive() && is_terminal() && length(src) > num_lines()
+  is_interactive() &&
+  is_terminal() &&
+  getOption("prettycode.should_page", TRUE) &&
+  (length(src) > num_lines())
 }
