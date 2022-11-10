@@ -12,6 +12,25 @@ reserved_words <- function() {
     "REPEAT", "WHILE", "FOR", "IN", "NEXT", "BREAK")
 }
 
+# same as `getParseData(, includeText = NA)` but making sure strings and symbols are not trimmed
+get_parse_data <- function(x) {
+  # include text so we don't lose long strings and symbols
+  data <- getParseData(x, includeText = TRUE)
+  # fetch indices of potentially trimmed text
+  row_number <- which(data$token %in% c("STR_CONST", "SYMBOL") & startsWith(data$text, "["))
+  ids <- data$id[row_number]
+  parent_ids <- data$parent[row_number]
+  parent_row_number <- match(parent_ids, data$id)
+  # consider only if parent is expr and parent has a single child
+  eligible_parent <-
+    data$token[parent_row_number] == "expr" &
+    vapply(parent_ids, function(x) sum(data$parent == x) == 1, logical(1))
+  # replace with untrimmed
+  data$text[row_number[eligible_parent]] <- data$text[parent_row_number[eligible_parent]]
+  # remove text for non terminal tokens, as `getParseData(, includeText = NA)` would
+  data$text[!data$terminal] <- ""
+  data
+}
 
 #' Syntax highlight R code
 #'
@@ -28,7 +47,7 @@ reserved_words <- function() {
 highlight <- function(code, style = default_style()) {
 
   parsed <- parse(text = code, keep.source = TRUE)
-  data <- getParseData(parsed, includeText = NA)
+  data <- get_parse_data(parsed)
 
   hitext <- data$text
 
@@ -73,7 +92,7 @@ highlight <- function(code, style = default_style()) {
     comment <- data$token == "COMMENT"
     hitext[comment] <- style$comment(data$text[comment])
   }
-  
+
   ## Brackets
   if (!is.null(style$bracket)){
     bracket <- data$token %in% bracket_tokens()

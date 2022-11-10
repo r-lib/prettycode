@@ -110,3 +110,19 @@ test_that("bracket", {
     "foo <- functionBxBBxB"
   )
 })
+
+test_that("long strings and symbols", {
+  expect_true(
+    grepl(
+      strrep("-", 1000),
+      highlight(paste0("foo('", strrep("-", 1000), "')"))
+    )
+  )
+
+  expect_true(
+    grepl(
+      strrep("-", 1000),
+      highlight(paste0("foo(`", strrep("-", 1000), "`)"))
+    )
+  )
+})

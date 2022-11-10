@@ -2,6 +2,7 @@
 # pretttycode development version
 
 * Printing primitive functions excludes their `NULL` environment (#11 @mdequeljoe)
+* `highlight()` supports long strings and symbols (#21 @moodymudskipper)
 
 # prettycode 1.1.0
 
