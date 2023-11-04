@@ -3,11 +3,12 @@
 
 > Pretty Print R Code in the Terminal
 
-[![Linux Build Status](https://travis-ci.org/r-lib/prettycode.svg?branch=main)](https://travis-ci.org/r-lib/prettycode)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/prettycode?svg=true)](https://ci.appveyor.com/project/gaborcsardi/prettycode)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/r-lib/prettycode/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/prettycode/actions/workflows/R-CMD-check.yaml)
 [![](http://www.r-pkg.org/badges/version/prettycode)](http://www.r-pkg.org/pkg/prettycode)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/prettycode)](http://www.r-pkg.org/pkg/prettycode)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/prettycode/main.svg)](https://codecov.io/github/r-lib/prettycode?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/prettycode/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/prettycode?branch=main)
+<!-- badges: end -->
 
 Replace the standard print method for functions with one that performs
 syntax highlighting, using ANSI colors, if the terminal supports them.
