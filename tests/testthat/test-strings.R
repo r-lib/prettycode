@@ -1,6 +1,3 @@
-
-context("replace_in_place")
-
 test_that("replace_in_place", {
 
   expect_equal(

@@ -1,6 +1,3 @@
-
-context("print")
-
 test_that("print without color support", {
 
   mockery::stub(print.function, "should_page", FALSE)
@@ -8,7 +5,7 @@ test_that("print without color support", {
 
   f <- function() { }
   expect_output(
-    withr::with_options(list(crayon.enabled = TRUE), print.function(f)),
+    withr::with_options(list(cli.num_colors = 256), print.function(f)),
     "function[(][)] { }"
   )
 })
@@ -39,7 +36,7 @@ test_that("print with color support", {
 
   f <- function() { 1 + 2 }
   withr::with_options(
-    list(crayon.enabled = TRUE),
+    list(cli.num_colors = 256),
     print.function(f)
   )
   expect_true(crayon::has_style(paste(args[[1]], collapse = "\n")))
@@ -53,7 +50,7 @@ test_that("print with color support 2", {
   mockery::stub(print.function, "cat", function(...) args <<- list(...))
 
   withr::with_options(
-    list(crayon.enabled = TRUE),
+    list(cli.num_colors = 256),
     print.function(ls)
   )
   expect_true(crayon::has_style(paste(args[[1]], collapse = "\n")))
@@ -68,7 +65,7 @@ test_that("pager", {
 
   f <- function() { 1 + 2 }
   withr::with_options(
-    list(crayon.enabled = TRUE),
+    list(cli.num_colors = 256),
     print.function(f)
   )
 

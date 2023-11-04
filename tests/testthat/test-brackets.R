@@ -1,7 +1,3 @@
-
-
-context("colour_brackets")
-
 col_seq <- list(function(x)
   paste0("1", x),
   function(x)

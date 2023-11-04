@@ -1,6 +1,3 @@
-
-context("highlight")
-
 test_that("reserved", {
 
   expect_equal(

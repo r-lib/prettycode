@@ -1,6 +1,3 @@
-
-context("utils")
-
 test_that("is_interactive", {
   expect_identical(interactive(), is_interactive())
 })
