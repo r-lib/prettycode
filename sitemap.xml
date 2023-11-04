@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://r-lib.github.io/prettycode/404.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/color_brackets.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/default_style.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/highlight.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/prettycode.html</loc>
+  </url>
+  <url>
+    <loc>https://r-lib.github.io/prettycode/reference/print.function.html</loc>
+  </url>
+</urlset>
