@@ -15,8 +15,16 @@ syntax highlighting, using ANSI colors, if the terminal supports them.
 
 ## Installation
 
+Stable version:
+
 ```r
 install.packages("prettycode")
+```
+
+Development version:
+
+```r
+pak::pak("r-lib/prettycode")
 ```
 
 ## Usage
