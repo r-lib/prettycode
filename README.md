@@ -23,7 +23,7 @@ install.packages("prettycode")
 Just call `prettycode::prettycode()` and start printing functions to the
 screen. Long functions are automatically paged using the default pager.
 
-![](/inst/screenshot.png)
+![](/screenshot.png)
 
 ### Options
 
