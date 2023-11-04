@@ -1,8 +1,8 @@
 Package: prettycode
 Title: Pretty Print R Code in the Terminal
 Version: 1.1.0.9000
-Author: Gábor Csárdi
-Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
+Authors@R: 
+    person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", role = c("aut", "cre"))
 Description: Replace the standard print method for functions with one that
     performs syntax highlighting, using ANSI colors, if the terminal
     supports them.
