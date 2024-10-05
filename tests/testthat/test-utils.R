@@ -3,7 +3,7 @@ test_that("is_interactive", {
 })
 
 test_that("is_terminal, not a tty", {
-  mockery::stub(is_terminal, "isatty", FALSE)
+  local_mocked_bindings(isatty = function(...) FALSE)
   expect_false(is_terminal())
 })
 
