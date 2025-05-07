@@ -4,7 +4,16 @@ test_that("default_style", {
   expect_true(
     all(
       names(def) %in%
-      c("reserved", "number", "null", "operator", "call", "string", "comment", "bracket")
+        c(
+          "reserved",
+          "number",
+          "null",
+          "operator",
+          "call",
+          "string",
+          "comment",
+          "bracket"
+        )
     )
   )
 })

@@ -1,5 +1,4 @@
 test_that("reserved", {
-
   expect_equal(
     highlight("function () { }", list(reserved = function(x) "foo")),
     "foo () { }"
@@ -32,7 +31,6 @@ test_that("reserved", {
 })
 
 test_that("number", {
-
   expect_equal(
     highlight("1 + 1.0 + -1 + 2L + Inf", list(number = function(x) "N")),
     "N + N + -N + N + N"
@@ -57,7 +55,6 @@ test_that("null", {
 })
 
 test_that("operator", {
-
   expect_equal(
     highlight(
       "~ ! 1 - 2 + 3:4 * 5 / 6 ^ 7",

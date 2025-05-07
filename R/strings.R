@@ -1,6 +1,4 @@
-
 replace_in_place <- function(str, start, end, replacement) {
-
   stopifnot(
     length(str) == 1,
     length(start) == length(end),
