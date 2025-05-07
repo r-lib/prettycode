@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-10-05T14:59Z
+last_built: 2025-05-07T10:14Z
 urls:
   reference: https://r-lib.github.io/prettycode/reference
   article: https://r-lib.github.io/prettycode/articles
