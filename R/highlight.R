@@ -1,15 +1,34 @@
-
 operator_tokens <- function() {
   c(
-    "'-'", "'+'", "'!'", "'~'", "'?'", "':'", "'*'", "'/'", "'^'",
-    "SPECIAL", "LT", "GT", "EQ", "GE", "LE", "AND", "AND2", "OR", "OR2",
-    "LEFT_ASSIGN", "RIGHT_ASSIGN", "'$'", "'@'", "EQ_ASSIGN"
+    "'-'",
+    "'+'",
+    "'!'",
+    "'~'",
+    "'?'",
+    "':'",
+    "'*'",
+    "'/'",
+    "'^'",
+    "SPECIAL",
+    "LT",
+    "GT",
+    "EQ",
+    "GE",
+    "LE",
+    "AND",
+    "AND2",
+    "OR",
+    "OR2",
+    "LEFT_ASSIGN",
+    "RIGHT_ASSIGN",
+    "'$'",
+    "'@'",
+    "EQ_ASSIGN"
   )
 }
 
 reserved_words <- function() {
-  c("FUNCTION", "IF", "ELSE",
-    "REPEAT", "WHILE", "FOR", "IN", "NEXT", "BREAK")
+  c("FUNCTION", "IF", "ELSE", "REPEAT", "WHILE", "FOR", "IN", "NEXT", "BREAK")
 }
 
 # same as `getParseData(, includeText = NA)` but making sure strings and symbols are not trimmed
@@ -17,7 +36,9 @@ get_parse_data <- function(x) {
   # include text so we don't lose long strings and symbols
   data <- getParseData(x, includeText = TRUE)
   # fetch indices of potentially trimmed text
-  row_number <- which(data$token %in% c("STR_CONST", "SYMBOL") & startsWith(data$text, "["))
+  row_number <- which(
+    data$token %in% c("STR_CONST", "SYMBOL") & startsWith(data$text, "[")
+  )
   ids <- data$id[row_number]
   parent_ids <- data$parent[row_number]
   parent_row_number <- match(parent_ids, data$id)
@@ -26,7 +47,9 @@ get_parse_data <- function(x) {
     data$token[parent_row_number] == "expr" &
     vapply(parent_ids, function(x) sum(data$parent == x) == 1, logical(1))
   # replace with untrimmed
-  data$text[row_number[eligible_parent]] <- data$text[parent_row_number[eligible_parent]]
+  data$text[row_number[eligible_parent]] <- data$text[parent_row_number[
+    eligible_parent
+  ]]
   # remove text for non terminal tokens, as `getParseData(, includeText = NA)` would
   data$text[!data$terminal] <- ""
   data
@@ -45,7 +68,6 @@ get_parse_data <- function(x) {
 #' cat(highlight(deparse(ls)), sep = "\n")
 
 highlight <- function(code, style = default_style()) {
-
   parsed <- parse(text = code, keep.source = TRUE)
   data <- get_parse_data(parsed)
 
@@ -94,7 +116,7 @@ highlight <- function(code, style = default_style()) {
   }
 
   ## Brackets
-  if (!is.null(style$bracket)){
+  if (!is.null(style$bracket)) {
     bracket <- data$token %in% bracket_tokens()
     hitext[bracket] <- color_brackets(data$text[bracket], style$bracket)
   }
@@ -103,12 +125,11 @@ highlight <- function(code, style = default_style()) {
 }
 
 do_subst <- function(code, pdata, hitext) {
-
   pdata$hitext <- hitext
 
   ## Need to do this line by line. TODO: multiline stuff might be broken
   vapply(seq_along(code), FUN.VALUE = character(1), function(no) {
-    my <- pdata[pdata$line1 == no & pdata$line2 == no,, drop = FALSE]
+    my <- pdata[pdata$line1 == no & pdata$line2 == no, , drop = FALSE]
     replace_in_place(code[no], my$col1, my$col2, my$hitext)
   })
 }

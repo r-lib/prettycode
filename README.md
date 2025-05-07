@@ -7,7 +7,7 @@
 [![R-CMD-check](https://github.com/r-lib/prettycode/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/prettycode/actions/workflows/R-CMD-check.yaml)
 [![](https://www.r-pkg.org/badges/version/prettycode)](https://www.r-pkg.org/pkg/prettycode)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/prettycode)](https://www.r-pkg.org/pkg/prettycode)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/prettycode/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/prettycode?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/prettycode/graph/badge.svg)](https://app.codecov.io/gh/r-lib/prettycode)
 <!-- badges: end -->
 
 Replace the standard print method for functions with one that performs

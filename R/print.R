@@ -1,4 +1,3 @@
-
 #' Pretty Print R Code in the Terminal
 #'
 #' Replace the standard print method for functions with one that performs
@@ -10,11 +9,14 @@
 
 prettycode <- function(warn_conflicts = TRUE) {
   register_s3_method("prettycode", "print", "function", print.function)
-  if (! obj_name %in% search()) {
+  if (!obj_name %in% search()) {
     env <- new.env(parent = emptyenv())
     env$print.function <- print.function
     env$`!` <- exclam
-    do.call("attach", list(env, name = obj_name, warn.conflicts = warn_conflicts))
+    do.call(
+      "attach",
+      list(env, name = obj_name, warn.conflicts = warn_conflicts)
+    )
   }
 }
 
@@ -28,7 +30,6 @@ register_s3_method <- function(pkg, generic, class, fun = NULL) {
     fun <- get(paste0(generic, ".", class), envir = parent.frame())
   }
   stopifnot(is.function(fun))
-
 
   if (pkg %in% loadedNamespaces()) {
     registerS3method(generic, class, fun, envir = envir)
@@ -58,13 +59,11 @@ register_s3_method <- function(pkg, generic, class, fun = NULL) {
 #'
 #' @importFrom utils capture.output
 
-print.function <- function(x, useSource = TRUE,
-                           style = default_style(), ...) {
-
+print.function <- function(x, useSource = TRUE, style = default_style(), ...) {
   if (!can_pretty_print()) return(base::print.function(x, useSource))
 
   srcref <- getSrcref(x)
-  src <- if (useSource && ! is.null(srcref)) {
+  src <- if (useSource && !is.null(srcref)) {
     as.character(srcref)
   } else {
     deparse(x)
@@ -73,7 +72,8 @@ print.function <- function(x, useSource = TRUE,
   err <- FALSE
   hisrc <- tryCatch(
     highlight(src, style = style),
-    error = function(e) err <<- TRUE)
+    error = function(e) err <<- TRUE
+  )
   if (err) return(base::print.function(x, useSource))
 
   ## Environment of the function
@@ -83,7 +83,6 @@ print.function <- function(x, useSource = TRUE,
 
   if (!should_page(hisrc)) {
     cat(hisrc, sep = "\n")
-
   } else {
     cat(hisrc, sep = "\n", file = tmp <- tempfile())
     on.exit(unlink(tmp), add = TRUE)
@@ -127,7 +126,7 @@ num_lines <- function() {
 
 should_page <- function(src) {
   is_interactive() &&
-  is_terminal() &&
-  getOption("prettycode.should_page", TRUE) &&
-  (length(src) > num_lines())
+    is_terminal() &&
+    getOption("prettycode.should_page", TRUE) &&
+    (length(src) > num_lines())
 }

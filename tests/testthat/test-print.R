@@ -1,9 +1,9 @@
 test_that("print without color support", {
-
   local_mocked_bindings(should_page = function() FALSE)
   local_mocked_bindings(can_pretty_print = function() FALSE)
 
-  f <- function() { }
+  f <- function() {
+  }
   expect_output(
     withr::with_options(list(cli.num_colors = 256), print.function(f)),
     "function[(][)] { }"
@@ -12,7 +12,6 @@ test_that("print without color support", {
 
 
 test_that("print without color support 2", {
-
   called <- FALSE
   local_mocked_bindings(should_page = function() FALSE)
   local_mocked_bindings(can_pretty_print = function() FALSE)
@@ -24,13 +23,14 @@ test_that("print without color support 2", {
 })
 
 test_that("print with color support", {
-
   args <- NULL
   local_mocked_bindings(should_page = function(...) FALSE)
   local_mocked_bindings(can_pretty_print = function() TRUE)
   local_mocked_bindings(cat = function(...) args <<- list(...))
 
-  f <- function() { 1 + 2 }
+  f <- function() {
+    1 + 2
+  }
   withr::with_options(
     list(cli.num_colors = 256),
     print.function(f)
@@ -39,7 +39,6 @@ test_that("print with color support", {
 })
 
 test_that("print with color support 2", {
-
   args <- NULL
   local_mocked_bindings(should_page = function(...) FALSE)
   local_mocked_bindings(can_pretty_print = function() TRUE)
@@ -53,13 +52,14 @@ test_that("print with color support 2", {
 })
 
 test_that("pager", {
-
   cn <- NULL
   local_mocked_bindings(should_page = function(...) TRUE)
   local_mocked_bindings(can_pretty_print = function() TRUE)
   local_mocked_bindings(file.show = function(f) cn <<- readLines(f))
 
-  f <- function() { 1 + 2 }
+  f <- function() {
+    1 + 2
+  }
   withr::with_options(
     list(cli.num_colors = 256),
     print.function(f)

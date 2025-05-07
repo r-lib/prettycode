@@ -1,21 +1,35 @@
-col_seq <- list(function(x)
-  paste0("1", x),
-  function(x)
-    paste0("2", x),
-  function(x)
-    paste0("3", x))
+col_seq <- list(
+  function(x) paste0("1", x),
+  function(x) paste0("2", x),
+  function(x) paste0("3", x)
+)
 
 test_that("bracket highlighting", {
   # [](){}
-  expect_equal(color_brackets(c("[", "]", "(", ")", "{", "}"), col_seq),
-               c("1[", "1]", "1(", "1)", "1{", "1}"))
-  
+  expect_equal(
+    color_brackets(c("[", "]", "(", ")", "{", "}"), col_seq),
+    c("1[", "1]", "1(", "1)", "1{", "1}")
+  )
+
   # [({[({})]})]
   expect_equal(
-    color_brackets(c(
-      "[", "(", "{", "[", "(", "{", "}", ")", "]", "}", ")", "]"
+    color_brackets(
+      c(
+        "[",
+        "(",
+        "{",
+        "[",
+        "(",
+        "{",
+        "}",
+        ")",
+        "]",
+        "}",
+        ")",
+        "]"
+      ),
+      col_seq
     ),
-    col_seq),
     c(
       "1[",
       "2(",
@@ -31,7 +45,7 @@ test_that("bracket highlighting", {
       "1]"
     )
   )
-  
+
   # [[ [] ]][[ ()() ]]
   expect_equal(
     color_brackets(

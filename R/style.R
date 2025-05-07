@@ -1,4 +1,3 @@
-
 #' Default `prettycode` syntax highlighting style
 #'
 #' A style function must return a named list of functions. Possible
@@ -10,11 +9,11 @@
 #' * `call`: function calls
 #' * `string`: character literals
 #' * `comment`: comments
-#' * `bracket`: brackets: \code{(){}[]} 
+#' * `bracket`: brackets: \code{(){}[]}
 #'
 #' Each entry in a list must be a function that takes a character
 #' scalar, and returns a character scalar with the exception of `bracket`
-#' which should be a list of these type of functions defining a color sequence. 
+#' which should be a list of these type of functions defining a color sequence.
 #' The default style adds ANSI formatting to the code.
 #'
 #' Note that you can also change the code if you like, e.g. to include
@@ -44,25 +43,25 @@ default_style_rstudio <- function() {
 no_style <- function() {
   list(
     reserved = identity,
-    number   = identity,
-    null     = identity,
+    number = identity,
+    null = identity,
     operator = identity,
-    call     = identity,
-    string   = identity,
-    comment  = identity,
-    bracket  = list(identity)
+    call = identity,
+    string = identity,
+    comment = identity,
+    bracket = list(identity)
   )
 }
 
 default_style_term <- function() {
   list(
     reserved = red,
-    number   = blue,
-    null     = combine_styles(blue, bold),
+    number = blue,
+    null = combine_styles(blue, bold),
     operator = green,
-    call     = cyan,
-    string   = yellow,
-    comment  = combine_styles(make_style("darkgrey"), italic),
-    bracket  = c(yellow, blue, cyan)
+    call = cyan,
+    string = yellow,
+    comment = combine_styles(make_style("darkgrey"), italic),
+    bracket = c(yellow, blue, cyan)
   )
 }
