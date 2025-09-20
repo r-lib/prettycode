@@ -23,7 +23,9 @@ operator_tokens <- function() {
     "RIGHT_ASSIGN",
     "'$'",
     "'@'",
-    "EQ_ASSIGN"
+    "EQ_ASSIGN",
+    "EQ_SUB",
+    "EQ_FORMALS"
   )
 }
 
@@ -101,6 +103,12 @@ highlight <- function(code, style = default_style()) {
   if (!is.null(style$call)) {
     fun_call <- data$token == "SYMBOL_FUNCTION_CALL"
     hitext[fun_call] <- style$call(data$text[fun_call])
+  }
+
+  ## Package names - use operator styling directly
+  if (!is.null(style$operator)) {
+    package <- data$token == "SYMBOL_PACKAGE"
+    hitext[package] <- style$operator(data$text[package])
   }
 
   ## Strings
