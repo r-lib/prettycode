@@ -78,10 +78,28 @@ test_that("operator", {
     ),
     "a OP 10; 20 OP b; c OP 30; aOPb; aOPb"
   )
+
+  expect_equal(
+    highlight(
+      "function(var = value) f(x = 1)",
+      list(operator = function(x) "OP")
+    ),
+    "function(var OP value) f(x OP 1)"
+  )
+
+  expect_equal(
+    highlight("a::b + a:::b", list(operator = function(x) "OP")),
+    "aOPb OP aOPb"
+  )
 })
 
 test_that("call", {
   expect_equal(highlight("ls(2)", list(call = function(x) "F")), "F(2)")
+
+  expect_equal(
+    highlight("crayon::make_style(2)", list(call = function(x) "F")),
+    "F::F(2)"
+  )
 })
 
 test_that("string", {

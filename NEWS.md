@@ -3,6 +3,9 @@
 
 * Printing primitive functions excludes their `NULL` environment (#11 @mdequeljoe)
 * `highlight()` supports long strings and symbols (#21 @moodymudskipper)
+* `highlight()` now styles `=` in function formals and call arguments as an
+  operator, the namespace operators `::` and `:::` as operators, and the
+  package name in `pkg::fun()` as a call (#15)
 
 # prettycode 1.1.0
 

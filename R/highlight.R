@@ -23,7 +23,11 @@ operator_tokens <- function() {
     "RIGHT_ASSIGN",
     "'$'",
     "'@'",
-    "EQ_ASSIGN"
+    "EQ_ASSIGN",
+    "EQ_FORMALS",
+    "EQ_SUB",
+    "NS_GET",
+    "NS_GET_INT"
   )
 }
 
@@ -97,9 +101,9 @@ highlight <- function(code, style = default_style()) {
     hitext[operator] <- style$operator(data$text[operator])
   }
 
-  ## Function calls
+  ## Function calls, including the package name in `pkg::fun()`
   if (!is.null(style$call)) {
-    fun_call <- data$token == "SYMBOL_FUNCTION_CALL"
+    fun_call <- data$token %in% c("SYMBOL_FUNCTION_CALL", "SYMBOL_PACKAGE")
     hitext[fun_call] <- style$call(data$text[fun_call])
   }
 
